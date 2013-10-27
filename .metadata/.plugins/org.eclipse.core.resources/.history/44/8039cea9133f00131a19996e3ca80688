@@ -1,0 +1,11 @@
+package common;
+
+/**
+ * Unit test for {@link Velocity}.
+ * @author PaulPC
+ *
+ */
+public class VelocityTest
+{
+
+}

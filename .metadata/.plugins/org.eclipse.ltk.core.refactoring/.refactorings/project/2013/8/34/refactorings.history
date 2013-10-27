@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;private void checkPreconditions(final Set&lt;Card&gt; aPokerHand)&apos; from &apos;PokerHandResolver.resolve()&apos; to &apos;PokerHandResolver&apos;&#x0D;&#x0A;- Original project: &apos;project&apos;&#x0D;&#x0A;- Method name: &apos;checkPreconditions&apos;&#x0D;&#x0A;- Destination type: &apos;PokerHandResolver&apos;&#x0D;&#x0A;- Declared visibility: &apos;private&apos;" comments="false" description="Extract method &apos;checkPreconditions&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;{PokerHandResolver.java" name="checkPreconditions" replace="false" selection="413 270" stamp="1377455074816" version="1.0" visibility="2"/>
+</session>

@@ -1,0 +1,12 @@
+package common;
+
+/**
+ * Unit tests for {@link Position}.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class PositionTest
+{
+
+}

@@ -1,0 +1,7 @@
+1376423870248	Move compilation unit
+1376424274775	Rename local variable 'resolvePokerHand'
+1376424322995	Delete element
+1376424497811	Rename method 'resolvePokerHand'
+1376426131534	Rename local variable 'ten'
+1376426273865	Extract method 'getDefaultPokerHand'
+1376427432407	Extract local variable 'size'

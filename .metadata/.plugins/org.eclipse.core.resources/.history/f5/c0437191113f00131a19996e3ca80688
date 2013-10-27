@@ -1,0 +1,18 @@
+package common;
+
+import org.testng.annotations.Test;
+
+/**
+ * Unit tests for {@link Position}.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class PositionTest
+{
+	@Test
+	public void add_givenValues_returnsCorrectPosition()
+	{
+		return;
+	}
+}

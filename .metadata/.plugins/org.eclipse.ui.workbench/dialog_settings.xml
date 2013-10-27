@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="1152" key="dialogWidth"/>
+		<item value="596" key="dialogHeight"/>
+		<list key="orderedProviders">
+			<item value="org.eclipse.ui.preferences"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.ui.preferences"/>
+		</list>
+		<list key="textArray">
+			<item value="save"/>
+			<item value="tas"/>
+			<item value="tasks"/>
+			<item value="key"/>
+			<item value="hyperlinking"/>
+		</list>
+		<list key="orderedElements">
+			<item value="org.eclipse.jdt.ui.preferences.SaveParticipantPreferencePage"/>
+			<item value="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+			<item value="org.eclipse.ui.views.TaskList"/>
+			<item value="org.eclipse.ui.window.showKeyAssist"/>
+			<item value="org.eclipse.ui.editors.preferencePages.HyperlinkDetectorsPreferencePage"/>
+		</list>
+		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="9" key="DIALOG_Y_ORIGIN"/>
+		<item value="9" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.NewClassCreationWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.datatools.connectivity"/>
+			<item value="org.eclipse.team.cvs.ui.newWizards"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jdt.ui.java/org.eclipse.jdt.junit"/>
+			<item value="org.eclipse.jst.j2ee.internal"/>
+			<item value="org.eclipse.emf.codegen.ui.JETNewWizards"/>
+			<item value="org.eclipse.jpt.jaxb"/>
+			<item value="org.eclipse.pde.PDE"/>
+			<item value="org.eclipse.rse.ui.newWizards.rseCategory"/>
+			<item value="org.eclipse.mylyn.ui.wizards.new"/>
+			<item value="org.testng.eclipse"/>
+			<item value="org.eclipse.pde.userAssistance"/>
+			<item value="org.eclipse.wst.web.ui"/>
+			<item value="org.eclipse.jst.ws.ui.new"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+	</section>
+</section>

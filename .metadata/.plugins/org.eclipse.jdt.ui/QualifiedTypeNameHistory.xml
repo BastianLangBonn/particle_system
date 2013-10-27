@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="PokerHandResolver"/>
+<fullyQualifiedTypeName name="Preconditions"/>
+<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+<fullyQualifiedTypeName name="Card"/>
+<fullyQualifiedTypeName name="CardColor"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="PokerHand"/>
+<fullyQualifiedTypeName name="CardValue"/>
+<fullyQualifiedTypeName name="Particel.Builder"/>
+<fullyQualifiedTypeName name="Particel"/>
+<fullyQualifiedTypeName name="Particle"/>
+<fullyQualifiedTypeName name="Velocity"/>
+<fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
+<fullyQualifiedTypeName name="Position"/>
+<fullyQualifiedTypeName name="Force"/>
+<fullyQualifiedTypeName name="Drawable"/>
+<fullyQualifiedTypeName name="Movable"/>
+<fullyQualifiedTypeName name="Particle.Builder"/>
+<fullyQualifiedTypeName name="javax.swing.event.MouseInputListener"/>
+<fullyQualifiedTypeName name="common.Drawable"/>
+<fullyQualifiedTypeName name="display.FrameMain"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="common.Force"/>
+<fullyQualifiedTypeName name="java.awt.Graphics"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.w3c.dom.css.RGBColor"/>
+<fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
+<fullyQualifiedTypeName name="common.ParticleSystem"/>
+<fullyQualifiedTypeName name="common.Position"/>
+<fullyQualifiedTypeName name="common.Velocity"/>
+<fullyQualifiedTypeName name="org.testng.annotations.DataProvider"/>
+<fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+<fullyQualifiedTypeName name="junit.framework.Assert"/>
+<fullyQualifiedTypeName name="org.testng.Assert"/>
+</qualifiedTypeNameHistroy>
