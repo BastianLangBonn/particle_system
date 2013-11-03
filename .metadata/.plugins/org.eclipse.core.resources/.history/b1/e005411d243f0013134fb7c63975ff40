@@ -1,0 +1,12 @@
+package application;
+
+/**
+ * Panel that contains setting options.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class PanelSettings extends JPanel
+{
+
+}

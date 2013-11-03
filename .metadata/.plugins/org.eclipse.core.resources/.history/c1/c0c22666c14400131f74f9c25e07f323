@@ -1,0 +1,81 @@
+package application;
+
+import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JPanel;
+import javax.swing.event.MouseInputListener;
+
+import common.Position;
+
+public class PanelDisplay extends JPanel implements MouseInputListener
+{
+	private final Scene mScene;
+
+	/**
+	 * @param aScene
+	 */
+	public PanelDisplay(Scene aScene)
+	{
+		mScene = aScene;
+		addMouseListener(this);
+	}
+
+	@Override
+	public void paint(Graphics aGraphics)
+	{
+		mScene.draw(aGraphics, getWidth(), getHeight());
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent aEvent)
+	{
+		int x = aEvent.getX();
+		int y = aEvent.getY();
+
+		mScene.mouseClicked(new Position(x, y));
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent aArg0)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent aArg0)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent aArg0)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent aArg0)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent aArg0)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent aArg0)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+}

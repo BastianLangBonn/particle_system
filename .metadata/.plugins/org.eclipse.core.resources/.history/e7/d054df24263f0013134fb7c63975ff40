@@ -1,0 +1,16 @@
+package application;
+
+import javax.swing.JPanel;
+
+/**
+ * Panel that contains setting options.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class PanelSettings extends JPanel
+{
+
+	private static final long serialVersionUID = 1L;
+
+}

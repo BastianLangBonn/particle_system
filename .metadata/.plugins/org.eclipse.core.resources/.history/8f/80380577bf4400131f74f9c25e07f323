@@ -1,0 +1,68 @@
+package application;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.ComponentListener;
+
+import javax.swing.JFrame;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+/**
+ * The main frame of the application.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class FrameMain extends JFrame implements ComponentListener
+{
+	private static final long serialVersionUID = 1610567541519842755L;
+
+	/**
+	 * The panel showing the scene.
+	 */
+	public final PanelDisplay mPanelDisplay;
+
+	private final PanelSettings mPanelSettings;
+
+	private final Dimension INITIAL_DIMENSION = new Dimension(800, 600);
+
+	/**
+	 * @param aScene
+	 *            The object containing all objects that have to be drawn.
+	 */
+	public FrameMain(final Scene aScene)
+	{
+		setSize(INITIAL_DIMENSION);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		Dimension displayDimension = new Dimension((int) (getWidth() * 0.8), getHeight());
+		mPanelDisplay = new PanelDisplay(aScene, displayDimension);
+
+		add(mPanelDisplay);
+		mPanelDisplay.setVisible(true);
+
+		Dimension settingsDimension = new Dimension((int) (getWidth() * 0.2), getHeight());
+		mPanelSettings = new PanelSettings(settingsDimension);
+
+		add(mPanelSettings);
+		mPanelSettings.setVisible(true);
+
+		resizePanels();
+	}
+
+	@Override
+	public void paint(Graphics aGraphics)
+	{
+		mPanelDisplay.paint(aGraphics);
+	}
+
+	private void resizePanels()
+	{
+		Dimension displayDimension = new Dimension((int) (getWidth() * 0.8), getHeight());
+		mPanelDisplay.setBounds(0, 0, displayDimension.width, displayDimension.height);
+		Dimension settingsDimension = new Dimension((int) (getWidth() * 0.2), getHeight());
+		mPanelSettings.setBounds(displayDimension.width, 0, settingsDimension.width, settingsDimension.height);
+	}
+}

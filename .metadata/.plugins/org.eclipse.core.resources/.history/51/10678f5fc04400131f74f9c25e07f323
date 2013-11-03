@@ -1,0 +1,47 @@
+package application;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+/**
+ * Panel that contains setting options.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class PanelSettings extends JPanel
+{
+
+	private static final long serialVersionUID = 1L;
+
+	private JTextField mLifeTimeField;
+	private JLabel mLifeTimeLabel;
+
+	/**
+	 * @param aSettingsDimension
+	 *            Initial dimension.
+	 */
+	public PanelSettings(final Dimension aSettingsDimension)
+	{
+		setSize(aSettingsDimension);
+		setBackground(Color.gray);
+
+		mLifeTimeField = new JTextField(1000);
+		mLifeTimeLabel = new JLabel("Particle lifetime");
+		mLifeTimeField.setVisible(true);
+		mLifeTimeLabel.setVisible(true);
+		add(mLifeTimeField);
+		add(mLifeTimeLabel);
+	}
+	
+	@Override
+	public void doLayout()
+	{
+		// TODO Auto-generated method stub
+		super.doLayout();
+	}
+}

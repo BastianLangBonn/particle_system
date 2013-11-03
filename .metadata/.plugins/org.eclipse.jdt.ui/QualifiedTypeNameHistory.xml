@@ -26,7 +26,6 @@
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="common.Force"/>
 <fullyQualifiedTypeName name="java.awt.Graphics"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -39,4 +38,5 @@
 <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
 <fullyQualifiedTypeName name="junit.framework.Assert"/>
 <fullyQualifiedTypeName name="org.testng.Assert"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>

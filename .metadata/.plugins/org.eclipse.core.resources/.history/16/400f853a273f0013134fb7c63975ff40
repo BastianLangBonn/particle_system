@@ -1,0 +1,23 @@
+package application;
+
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+/**
+ * Panel that contains setting options.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class PanelSettings extends JPanel
+{
+
+	public PanelSettings(final Dimension aSettingsDimension)
+	{
+		setSize(aSettingsDimension);
+	}
+
+	private static final long serialVersionUID = 1L;
+
+}

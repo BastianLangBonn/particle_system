@@ -138,6 +138,12 @@ public class ParticleSystem implements Drawable, Movable
 		}
 	}
 
+	/**
+	 * Builder class for {@link ParticleSystem}.
+	 * 
+	 * @author PaulPC
+	 * 
+	 */
 	public static class Builder
 	{
 		private final Position mPosition;
@@ -148,6 +154,14 @@ public class ParticleSystem implements Drawable, Movable
 		private int mHorizontalSpreading;
 		private int mVerticalSpreading;
 
+		/**
+		 * @param aPosition
+		 *            The position of the {@link ParticleSystem}.
+		 * @param aEmissionRate
+		 *            The frequency of {@link Particle} emission.
+		 * @param aParticleLifetime
+		 *            The lifetime of a {@link Particle}.
+		 */
 		public Builder(final Position aPosition, final double aEmissionRate, final double aParticleLifetime)
 		{
 			mPosition = aPosition;
@@ -159,29 +173,56 @@ public class ParticleSystem implements Drawable, Movable
 			mVerticalSpreading = 0;
 		}
 
+		/**
+		 * @return A new instance of {@link ParticleSystem}.
+		 */
 		public ParticleSystem build()
 		{
 			return new ParticleSystem(this);
 		}
 
+		/**
+		 * Sets the start color of the {@link Particle}s.
+		 * 
+		 * @param aStartColor
+		 * @return The {@link Builder} instance.
+		 */
 		public Builder startColor(final Color aStartColor)
 		{
 			mStartColor = aStartColor;
 			return this;
 		}
 
+		/**
+		 * Sets the end color of the {@link Particle}s.
+		 * 
+		 * @param aEndColor
+		 * @return The {@link Builder} instance.
+		 */
 		public Builder endColor(final Color aEndColor)
 		{
 			mEndColor = aEndColor;
 			return this;
 		}
 
+		/**
+		 * Sets the horizontal spreading.
+		 * 
+		 * @param aHorizontalSpreading
+		 * @return The {@link Builder} instance.
+		 */
 		public Builder horizontalSpreading(final int aHorizontalSpreading)
 		{
 			mHorizontalSpreading = aHorizontalSpreading;
 			return this;
 		}
 
+		/**
+		 * Sets the vertical spreading.
+		 * 
+		 * @param aVerticalSpreading
+		 * @return The {@link Builder} instance.
+		 */
 		public Builder verticalSpreading(final int aVerticalSpreading)
 		{
 			mVerticalSpreading = aVerticalSpreading;

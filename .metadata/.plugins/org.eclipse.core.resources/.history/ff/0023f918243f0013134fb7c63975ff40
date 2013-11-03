@@ -1,0 +1,36 @@
+package application;
+
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+
+/**
+ * The main frame of the application.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class FrameMain extends JFrame
+{
+	private static final long serialVersionUID = 1610567541519842755L;
+
+	private final PanelDisplay mPanelDisplay;
+
+	private final PanelSettings mPanelSettings;
+
+	public FrameMain(final Scene aScene)
+	{
+		mPanelDisplay = new PanelDisplay(aScene);
+		add(mPanelDisplay);
+		mPanelDisplay.setVisible(true);
+		setSize(800, 600);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+
+	@Override
+	public void paint(Graphics aGraphics)
+	{
+		mPanelDisplay.paint(aGraphics);
+	}
+}

@@ -1,0 +1,51 @@
+package application;
+
+import java.awt.Graphics;
+import java.awt.event.ActionListener;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+/**
+ * Panel that contains setting options.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class PanelSettings extends JPanel implements ActionListener
+{
+
+	private static final long serialVersionUID = 1L;
+
+	private JTextField mLifeTimeField;
+	private JLabel mLifeTimeLabel;
+	private double mParticleLifeTime = 1000;
+
+	/**
+	 * 
+	 */
+	public PanelSettings()
+	{
+		mLifeTimeField = new JTextField(1000);
+		mLifeTimeLabel = new JLabel("Particle lifetime");
+		mLifeTimeField.setVisible(true);
+		mLifeTimeLabel.setVisible(true);
+		add(mLifeTimeField);
+		add(mLifeTimeLabel);
+		alignComponents();
+	}
+
+	private void alignComponents()
+	{
+		mLifeTimeField.setBounds(10, 10, 50, 25);
+		mLifeTimeLabel.setBounds(70, 10, 100, 25);
+	}
+
+	@Override
+	public void paint(Graphics aG)
+	{
+		super.paint(aG);
+		alignComponents();
+	}
+}

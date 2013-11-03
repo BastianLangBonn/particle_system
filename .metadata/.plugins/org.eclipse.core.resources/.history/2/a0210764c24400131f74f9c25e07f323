@@ -1,0 +1,60 @@
+package application;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
+
+import common.Force;
+import common.ParticleSystem;
+import common.Position;
+
+public class Scene
+{
+	private final List<ParticleSystem> mParticleSystems = new ArrayList<ParticleSystem>();
+	private final Force GRAVITY = new Force(0, 30);
+	private final Color mBackGroundColor = Color.black;
+
+	/**
+	 * Creates a new particle system at the given {@link Position}.
+	 * 
+	 * @param aPosition
+	 */
+	public void createNewParticleSystem(final Position aPosition)
+	{
+		int emissionRate = 10;
+		int mParticleLifetime = 3000;
+		ParticleSystem particleSystem = new ParticleSystem.Builder(aPosition, emissionRate, mParticleLifetime)//
+				.horizontalSpreading(20)//
+				.verticalSpreading(20)//
+				.startColor(new Color(Color.yellow.getRed() / 255, Color.yellow.getGreen() / 255, Color.yellow.getBlue() / 255, 1f))//
+				.endColor(new Color(Color.red.getRed() / 255, Color.red.getGreen() / 255, Color.red.getBlue() / 255, 0f))//
+				.build();
+		mParticleSystems.add(particleSystem);
+	}
+
+	/**
+	 * Draws the whole scene with all its objects.
+	 * @param aGraphicsContext
+	 * @param width
+	 * @param height
+	 */
+	public void drawScene(final Graphics aGraphicsContext, final int width, final int height)
+	{
+		aGraphicsContext.setColor(mBackGroundColor);
+		aGraphicsContext.fillRect(0, 0, width, height);
+		for (ParticleSystem particleSystem : mParticleSystems)
+		{
+			particleSystem.draw(aGraphicsContext, 1);
+		}
+
+	}
+
+	public void update(double aTimeIntervall)
+	{
+		for (ParticleSystem particleSystem : mParticleSystems)
+		{
+			particleSystem.update(GRAVITY, aTimeIntervall);
+		}
+	}
+}

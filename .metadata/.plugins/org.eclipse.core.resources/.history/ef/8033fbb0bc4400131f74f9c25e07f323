@@ -1,0 +1,213 @@
+package common;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+/**
+ * A class representing a simple particle system.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class ParticleSystem implements Drawable, Movable
+{
+	private final Position mPosition;
+	private final List<Particle> mParticles;
+	private final double mEmissionRate;
+	private final double mParticleLifetime;
+	private final Color mStartColor;
+	private final Color mEndColor;
+
+	private double mTimeSinceLastEmission;
+	private int mHorizontalSpreading;
+	private int mVerticalSpreading;
+
+	/**
+	 * @param aPosition
+	 * @param aEmissionIntervall
+	 *            Defines how fast new particles will be created.
+	 * @param aParticleLifetime
+	 */
+	private ParticleSystem(final Builder aBuilder)
+	{
+		mPosition = new Position(aBuilder.mPosition.getHorizontalPosition(), aBuilder.mPosition.getVerticalPosition());
+		mEmissionRate = aBuilder.mEmissionRate;
+		mParticleLifetime = aBuilder.mParticleLifetime;
+
+		mTimeSinceLastEmission = mEmissionRate;
+		mStartColor = aBuilder.mStartColor;
+		mEndColor = aBuilder.mEndColor;
+		mParticles = new ArrayList<Particle>();
+		mHorizontalSpreading = aBuilder.mHorizontalSpreading;
+		mVerticalSpreading = aBuilder.mVerticalSpreading;
+	}
+
+	@Override
+	public void update(final Force aForce, final double aTimeDelta)
+	{
+		updateParticles(aForce, aTimeDelta);
+		addNewParticles(aTimeDelta);
+	}
+
+	private void updateParticles(final Force aForce, final double aTime)
+	{
+		for (int i = mParticles.size() - 1; i >= 0; i--)
+		{
+			updateSingleParticle(aForce, aTime, i);
+		}
+	}
+
+	private void updateSingleParticle(final Force aForce, final double aTime, int i)
+	{
+		final Particle particle = mParticles.get(i);
+		particle.update(aForce, aTime);
+		if (particle.getLifeTime() < 0)
+		{
+			mParticles.remove(particle);
+		}
+	}
+
+	private void addNewParticles(final double aTimeDelta)
+	{
+		updateTimeSinceLastEmission(aTimeDelta);
+		if (hasEnoughTimePassed())
+		{
+			emitNewParticles();
+		}
+	}
+
+	private void updateTimeSinceLastEmission(final double aTimeDelta)
+	{
+		mTimeSinceLastEmission += aTimeDelta;
+	}
+
+	private boolean hasEnoughTimePassed()
+	{
+		return mTimeSinceLastEmission >= mEmissionRate;
+	}
+
+	private void emitNewParticles()
+	{
+		Velocity velocity = computeRandomVelocity(mHorizontalSpreading, mVerticalSpreading);
+		final Particle particle = createNewParticle(velocity);
+		mParticles.add(particle);
+		mTimeSinceLastEmission -= mEmissionRate;
+		addNewParticles(0);
+	}
+
+	private Particle createNewParticle(Velocity velocity)
+	{
+		final Particle particle = new Particle//
+		.Builder(velocity, mPosition)//
+				.lifeTime(mParticleLifetime)//
+				.startColor(mStartColor)//
+				.endColor(mEndColor)//
+				.build();
+		return particle;
+	}
+
+	private Velocity computeRandomVelocity(final int aHorizontalSpreading, final int aVerticalSpreading)
+	{
+		final double horizontalVelocity = computeCentralizedRandomValue(aHorizontalSpreading);
+		final double verticalVelocity = computeCentralizedRandomValue(aVerticalSpreading);
+		final Velocity velocity = new Velocity(horizontalVelocity, verticalVelocity);
+		return velocity;
+	}
+
+	private double computeCentralizedRandomValue(final int aSpreadingValue)
+	{
+		final int offSet = aSpreadingValue / 2;
+		double relativePosition = new Random().nextDouble();
+		return (relativePosition * aSpreadingValue) - offSet;
+	}
+
+	@Override
+	public void draw(final Graphics aGraphicsContext, final double aMagnifier)
+	{
+		drawAllParticles(aGraphicsContext, aMagnifier);
+	}
+
+	private void drawAllParticles(final Graphics aGraphicsContext, final double aMagnifier)
+	{
+		for (Particle particle : mParticles)
+		{
+			particle.draw(aGraphicsContext, aMagnifier);
+		}
+	}
+
+	public static class Builder
+	{
+		private final Position mPosition;
+		private final double mEmissionRate;
+		private final double mParticleLifetime;
+		private Color mStartColor;
+		private Color mEndColor;
+		private int mHorizontalSpreading;
+		private int mVerticalSpreading;
+
+		public Builder(final Position aPosition, final double aEmissionRate, final double aParticleLifetime)
+		{
+			mPosition = aPosition;
+			mEmissionRate = aEmissionRate;
+			mParticleLifetime = aParticleLifetime;
+			mStartColor = Color.white;
+			mEndColor = Color.white;
+			mHorizontalSpreading = 0;
+			mVerticalSpreading = 0;
+		}
+
+		public ParticleSystem build()
+		{
+			return new ParticleSystem(this);
+		}
+
+		/**
+		 * Sets the start color of the {@link Particle}s.
+		 * @param aStartColor
+		 * @return The {@link Builder} instance.
+		 */
+		public Builder startColor(final Color aStartColor)
+		{
+			mStartColor = aStartColor;
+			return this;
+		}
+
+		/**
+		 * Sets the end color of the {@link Particle}s.
+		 * @param aEndColor
+		 * @return The {@link Builder} instance.
+		 */
+		public Builder endColor(final Color aEndColor)
+		{
+			mEndColor = aEndColor;
+			return this;
+		}
+
+		/**
+		 * Sets the horizontal spreading.
+		 * 
+		 * @param aHorizontalSpreading
+		 * @return The {@link Builder} instance.
+		 */
+		public Builder horizontalSpreading(final int aHorizontalSpreading)
+		{
+			mHorizontalSpreading = aHorizontalSpreading;
+			return this;
+		}
+
+		/**
+		 * Sets the vertical spreading.
+		 * 
+		 * @param aVerticalSpreading
+		 * @return The {@link Builder} instance.
+		 */
+		public Builder verticalSpreading(final int aVerticalSpreading)
+		{
+			mVerticalSpreading = aVerticalSpreading;
+			return this;
+		}
+	}
+}

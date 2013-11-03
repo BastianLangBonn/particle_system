@@ -1,2 +1,7 @@
 1382882808792	Extract local variable 'd'
 1382883340393	Rename local variable 'obj'
+1382890104083	Rename package 'display'
+1382890112758	Move compilation unit
+1382890591733	Rename type 'PanelMain'
+1382890603896	Rename field 'mPanelMain'
+1382891666117	Rename field 'FRAME_DIMENSTION'

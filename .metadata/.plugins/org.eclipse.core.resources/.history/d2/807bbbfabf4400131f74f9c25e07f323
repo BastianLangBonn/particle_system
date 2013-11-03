@@ -1,0 +1,29 @@
+package application;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+/**
+ * Panel that contains setting options.
+ * 
+ * @author PaulPC
+ * 
+ */
+public class PanelSettings extends JPanel
+{
+
+	/**
+	 * @param aSettingsDimension
+	 *            Initial dimension.
+	 */
+	public PanelSettings(final Dimension aSettingsDimension)
+	{
+		setSize(aSettingsDimension);
+		setBackground(Color.gray);
+	}
+
+	private static final long serialVersionUID = 1L;
+
+}
